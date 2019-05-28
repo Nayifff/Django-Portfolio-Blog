@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+  <div class="row justify-content-md-center">
+
+    <h2>About me</h2>
+    </div>
+<div class="container">
+  <!-- Content here -->
+  <div class="row justify-content-md-center">
+
+    <p class="lead">
+
+      <br/>
+
+  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+</p>
+
+</div>
+</div>
+<div class="row justify-content-md-center">
+<h2>Projects</h2>
+</div>
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static project.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{% url 'project_detail' project.pk %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<style type="text/css">
+    
+    .text-center {
+  text-align: center;
+}
+</style>
+
+
+{% endblock %}
